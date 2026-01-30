@@ -242,7 +242,7 @@ function CardForm() {
             borderRadius: 18,
             padding: 12,
             marginBottom: 14,
-            background: "rgba(255,255,255,0.10)",
+            background: "rgba(255,255,255,0.010)",
             border: "1px solid rgba(255,255,255,0.20)",
             display: "flex",
             alignItems: "center",
@@ -261,7 +261,7 @@ function CardForm() {
               Premium Subscription
             </div>
             <div style={{ fontSize: 12, color: COLORS.subtleOnBlue }}>
-              Secure card payment
+              Flexible amount payment
             </div>
           </div>
 
