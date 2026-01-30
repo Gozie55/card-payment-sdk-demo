@@ -381,7 +381,7 @@ function CardForm() {
             color: "rgba(255,255,255,0.72)",
           }}
         >
-          Secured by • NettAppsPay
+          Secured by • BlackSilicon
         </div>
 
         {/* Tiny responsiveness improvement without CSS files:
