@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
-import { CreditCard } from "lucide-react";
+import { CreditCard, ShieldCheck } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 function CardForm() {
   // ----------------------------
@@ -12,6 +13,8 @@ function CardForm() {
 
   const [errors, setErrors] = useState({});
   const [successMessage, setSuccessMessage] = useState("");
+
+  const navigate = useNavigate();
 
   // ----------------------------
   // Mobile-first Fintech Blues + Gold
@@ -106,8 +109,17 @@ function CardForm() {
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
-      setSuccessMessage("✅ Details submitted successfully!");
-      setTimeout(() => setSuccessMessage(""), 5000);
+      setSuccessMessage("");
+
+      // Navigate to the gateway Card page (UI checkout)
+      navigate("/card", {
+        state: {
+          amount,
+          fullName,
+          email,
+          phone,
+        },
+      });
     } else {
       setSuccessMessage("");
     }
@@ -240,10 +252,10 @@ function CardForm() {
         <div
           style={{
             borderRadius: 18,
-            padding: 12,
+            padding: 20,
             marginBottom: 14,
             background: "rgba(255,255,255,0.010)",
-            border: "1px solid rgba(255,255,255,0.20)",
+            border: "2px solid rgba(255,255,255,0.20)",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
@@ -376,11 +388,15 @@ function CardForm() {
         <div
           style={{
             marginTop: 12,
-            textAlign: "center",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 8,
             fontSize: 11,
             color: "rgba(255,255,255,0.72)",
           }}
         >
+          <ShieldCheck size={14} color="rgba(255,255,255,0.72)" />
           Secured by • BlackSilicon
         </div>
 
